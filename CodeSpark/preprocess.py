@@ -31,7 +31,6 @@ rdd = sc.textFile(sys.argv[1])
 rdd = rdd.filter(lambda x: 'start' not in x.lower()) #remove header of citi bike
 rdd = rdd.map(lambda x: mapper_citi(x, zipcode)).filter(lambda x: int(x['key'].split(' ')[0])>2005 and int(x['key'].split(' ')[0])<2018) #structure data and filter out outliers
 df = spark.createDataFrame(rdd)
-print(df.show())
 df.write.format('com.databricks.spark.csv').save('/user/tx443/citi_preprocessed.csv',header = 'true')
 '''
 
@@ -50,7 +49,6 @@ rdd = sc.textFile(sys.argv[1])
 rdd = rdd.filter(lambda x: 'bble' not in x.lower()) #remove header of property
 rdd = rdd.map(lambda x: mapper_property(x, zipcode)).filter(lambda x: int(x['key'].split(' ')[0])>2005 and int(x['key'].split(' ')[0])<2018)
 df = spark.createDataFrame(rdd)
-print(df.show())
 df.write.format('com.databricks.spark.csv').save('/user/sz2396/property_preprocessed.csv',header = 'true')
 '''
 
@@ -61,7 +59,6 @@ rdd = rdd.filter(lambda x: 'date' not in x.lower()) #remove header of collision
 rdd = rdd.map(lambda x: mapper_collision(x, zipcode)).filter(lambda x: int(x['key'].split(' ')[0])>2005 and int(x['key'].split(' ')[0])<2018)
 df = spark.createDataFrame(rdd)
 print(df.show())
-df.write.csv('/user/sz2396/collision_preprocessed.csv')
 df.write.format('com.databricks.spark.csv').save('/user/sz2396/collision_preprocessed.csv',header = 'true')
 '''
 
@@ -71,7 +68,6 @@ rdd = sc.textFile(sys.argv[1])
 rdd = rdd.filter(lambda x: 'descriptor' not in x.lower()) #remove header of 311
 rdd = rdd.map(lambda x: mapper_311(x)).filter(lambda x: int(x['key'].split(' ')[0])>2005 and int(x['key'].split(' ')[0])<2018)
 df = spark.createDataFrame(rdd)
-df.write.csv('/user/sz2396/property_preprocessed.csv')
 df.write.format('com.databricks.spark.csv').save('/user/sz2396/property_preprocessed.csv',header = 'true')
 '''
 
@@ -81,6 +77,15 @@ rdd = sc.textFile(sys.argv[1])
 rdd = rdd.filter(lambda x: '' not in x.lower()) #remove header of 311
 rdd = rdd.map(lambda x: mapper_(x)).filter(lambda x: int(x['key'].split(' ')[0])>2005 and int(x['key'].split(' ')[0])<2018)
 df = spark.createDataFrame(rdd)
-df.write.csv('/user/tx443/crime_preprocessed.csv')
 df.write.format('com.databricks.spark.csv').save('/user/tx443/cirme_preprocessed.csv',header = 'true')
 '''
+
+'''
+#taxi
+rdd = sc.textFile(sys.argv[1])
+rdd = rdd.filter(lambda x: (len(x.strip())>10) and ('trip' not in x.lower())and ('vendorid'not in x.lower())) #remove header
+rdd = rdd.map(mapper_taxi)
+df = spark.createDataFrame(rdd)
+df.write.format('com.databricks.spark.csv').save('/user/ly1123/taxi_preprocessed.csv',header = 'true')
+'''
+
