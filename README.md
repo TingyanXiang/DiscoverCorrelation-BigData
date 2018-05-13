@@ -6,14 +6,22 @@ In this project, our goal is to discover potential correlations among datasets w
 
 Our data is collected from NYC open data with total size of over 100 GB. There are eight data sets: 
 
-- Yellow cab taxi data from 2011 to 2017; 
-- Vehicle collision data from 2011 to 2018; 
-- 311 call service records from 2011 to 2017; 
-- Citibike trip history data from 2010 to 2017; 
-- Crime data from 2006 to 2016; 
-- Weather data from 2011 to 2017; 
-- Property data from 2012 to 2017; 
-- Census data from 2013 to 2016. 
+- Yellow cab taxi data from 2011 to 2017: 
+http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
+- Vehicle collision data from 2011 to 2018:
+https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95
+- 311 call service records from 2011 to 2017:
+https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
+- Citibike trip history data from 2010 to 2017:
+https://www.citibikenyc.com/system-data
+- Crime data from 2006 to 2016:
+https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i
+- Weather data from 2011 to 2017: 
+https://nyu.box.com/s/6epatrjp0bi8xvd17blzmoy301ikie9z
+- Property data from 2012 to 2017: 
+https://nyu.box.com/s/hx7v2mpsw7rkdps6b613tvoiq9a1r448
+- Census data from 2013 to 2016: 
+https://factfinder.census.gov/faces/nav/jsf/pages/guided_search.xhtml
 
 All data sets have spatial and temporal attributes respectively with different resolutions. 
 
