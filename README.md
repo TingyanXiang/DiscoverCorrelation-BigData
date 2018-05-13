@@ -37,3 +37,9 @@ Contains
 ## Results 
 
 Contains the output form corr_.py files for different datasets. Both the join datasets and final result of mutual information and pearson correlations between two datasets. 
+
+# Architecture
+
+This project follows the process shown on the graph:
+
+<img src="https://user-images.githubusercontent.com/31422339/39963010-e94316c2-562d-11e8-8a86-1417be6fc401.png" width="900" height="500">
