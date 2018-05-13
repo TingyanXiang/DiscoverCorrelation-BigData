@@ -4,9 +4,9 @@ In this project, our goal is to discover potential correlations among datasets w
 
 # Dataset
 
-The data that we used in this project are collected from NYC open data with total size of over 100 GB. There are eight data sets: 
+Our data is collected from NYC open data with total size of over 100 GB. There are eight data sets: 
 
-- Yellow cab taxi data ranging from 2011 to 2017; 
+- Yellow cab taxi data from 2011 to 2017; 
 - Vehicle collision data from 2011 to 2018; 
 - 311 call service records from 2011 to 2017; 
 - Citibike trip history data from 2010 to 2017; 
@@ -15,25 +15,37 @@ The data that we used in this project are collected from NYC open data with tota
 - Property data from 2012 to 2017; 
 - Census data from 2013 to 2016. 
 
-All datasets have spatial and temporal attributes respectively with different precisions. 
+All datasets have spatial and temporal attributes respectively with different precision. 
 
 # Code
-The code of this project are categorized into 4 parts, CodeSpark, MapReduce, SpatialResolution and Results.
+The code of this project is categorized into 4 parts, CodeSpark, MapReduce, SpatialResolution and Results.
 
 ### CodeSpark
 
 Contains main python files that includes mappers.py, preprocess.py and correlation calculating files. 
-- mapper.py contains all mapper functions are used to gather and clean information from 8 different ddata sets. 
-- preprocess.py removes header of each dataset and run mapper functions from mapper.py to process and generate dataframe output with keys and values with the form of (year month day hour zip)
-- corr_.py files takes two dataframes from different datasets, aggregate attributes with spark SQL, inner join two datasets with same keys and calculate correlations afterwards. 
+- mappers.py contains all mapper functions that are used to preprocess 8 different data sets. 
+- preprocess.py removes header of each dataset and run mapper functions from mapper.py to generate dataframe outputs with keys and values in the same format
+- corr_.py files take two dataframes, aggregate attributes with spark SQL, inner join two datasets with same keys and calculate correlations afterwards. 
 
 ### SpatialResolution
 
-Contains 
+Contains a python file that builds the grid search and data that includes spatial information.
+- gridSearch.py builds the grid search dictionary and the search function used in mappers.
+- polys_*.pickle is a list of polygons of corresponding districts.
+- polys_*_dict.pickle is dictionary with key=index of polygons and value=corresponding_district
+- bound_*.pickle is the border information of NYC. 
+
+If you want to use the search function (find_dist), you need to generate a dictionary with key=index_of_grid and value=polygons with gridSearch.py.  
 
 ### Results 
 
-Contains the output form corr_.py files for different datasets. Both the join datasets and final result of mutual information and pearson correlations between two datasets. 
+Contains a small part of outputs form corr_.py files for different datasets. Both joined datasets and final results of mutual information and Pearson correlation are included.
+
+### MapReduce
+Contains a few map and reduce functions that are written for primary MapReduce implementation at first. Later we choose to use Spark and these functions are abandoned.
+
+### How to run
+If you want to run this system on your own, you need run the preprocess.py first to get well-structured tables, and then run corr.py files to get correlation results.
 
 # Architecture
 
