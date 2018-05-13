@@ -20,18 +20,18 @@ All datasets have spatial and temporal attributes respectively with different pr
 # Code
 The code of this project are categorized into 4 parts, CodeSpark, MapReduce, SpatialResolution and Results.
 
-## CodeSpark
+### CodeSpark
 
 Contains main python files that includes mappers.py, preprocess.py and correlation calculating files. 
 - mapper.py contains all mapper functions are used to gather and clean information from 8 different ddata sets. 
 - preprocess.py removes header of each dataset and run mapper functions from mapper.py to process and generate dataframe output with keys and values with the form of (year month day hour zip)
 - corr_.py files takes two dataframes from different datasets, aggregate attributes with spark SQL, inner join two datasets with same keys and calculate correlations afterwards. 
 
-## SpatialResolution
+### SpatialResolution
 
 Contains 
 
-## Results 
+### Results 
 
 Contains the output form corr_.py files for different datasets. Both the join datasets and final result of mutual information and pearson correlations between two datasets. 
 
