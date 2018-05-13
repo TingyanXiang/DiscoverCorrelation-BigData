@@ -2,9 +2,6 @@
 
 In this project, our goal is to discover potential correlations among datasets with different temporal and spatial resolutions. We first preprocess large quantity of data with spark and then we aggregate well-structured outputs based on diverse aggregation functions. For the final step, we compute pairwise mutulal information and pearson correlation to measure relationships among different attributes. 
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/31422339/39962837-e5913c98-5628-11e8-814a-f49129e398ad.jpeg" width="400" height="790">
-
 # Dataset
 
 The data that we used in this project are collected from NYC open data with total size of over 100 GB. There are eight data sets: 
